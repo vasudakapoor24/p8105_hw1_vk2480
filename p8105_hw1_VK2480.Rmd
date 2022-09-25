@@ -1,0 +1,51 @@
+#Calling libraries
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+# Problem 1
+```{r}
+#install.packages("palmerpenguins")
+
+data("penguins", package = "palmerpenguins")
+
+first_scatterplot <- ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+first_scatterplot
+
+ggsave("first_scatterplot.pdf")
+```
+- This dataset is about penguins and has the following variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year.
+- This dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns
+- The mean flipper length is `r mean(penguins$flipper_length_mm,na.rm=TRUE)` mm. 
+
+# Problem 2
+```{r}
+set.seed(1289)
+
+new_df = tibble(
+  vec_numeric = rnorm(10),
+  vec_logical = vec_numeric > 0,
+  vec_char = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+  vec_factor = factor(c("first", "second", "third", "third", "second", "first", "first", "second", "third", "second"))
+)
+new_df
+
+mean(new_df$vec_numeric)
+mean(new_df$vec_logical)
+mean(new_df$vec_char) 
+mean(new_df$vec_factor)
+
+```
+
+```{r, echo = FALSE}
+logical_new_col <- as.numeric(new_df$vec_logical)
+
+char_new_col <- as.numeric(new_df$vec_char)
+
+factor_new_col <- as.numeric(new_df$vec_factor)
+
+mean(char_new_col)
+mean(factor_new_col)
+```
+
