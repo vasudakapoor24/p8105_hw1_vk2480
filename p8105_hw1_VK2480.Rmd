@@ -38,7 +38,9 @@ mean(new_df$vec_factor)
 
 ```
 
-```{r, echo = FALSE}
+We are able to take the mean of the numeric and logical variables but not of the character and factor variables.
+
+```{r, results = FALSE}
 logical_new_col <- as.numeric(new_df$vec_logical)
 
 char_new_col <- as.numeric(new_df$vec_char)
@@ -48,4 +50,4 @@ factor_new_col <- as.numeric(new_df$vec_factor)
 mean(char_new_col)
 mean(factor_new_col)
 ```
-
+After converting the character and factor variables to numeric type, we are able to take their mean. The mean for the new character variable is `r mean(char_new_col)` and the mean for the new factor variable is `r mean(factor_new_col)`.

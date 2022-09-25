@@ -429,9 +429,19 @@ new_df</code></pre>
 <pre><code>## Warning in mean.default(new_df$vec_factor): argument is not numeric or logical:
 ## returning NA</code></pre>
 <pre><code>## [1] NA</code></pre>
+<p>We are able to take the mean of the numeric and logical variables but
+not of the character and factor variables.</p>
+<pre class="r"><code>logical_new_col &lt;- as.numeric(new_df$vec_logical)
+
+char_new_col &lt;- as.numeric(new_df$vec_char)</code></pre>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
-<pre><code>## [1] NA</code></pre>
-<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>factor_new_col &lt;- as.numeric(new_df$vec_factor)
+
+mean(char_new_col)
+mean(factor_new_col)</code></pre>
+<p>After converting the character and factor variables to numeric type,
+we are able to take their mean. The mean for the new character variable
+is NA and the mean for the new factor variable is 2.</p>
 </div>
 
 
